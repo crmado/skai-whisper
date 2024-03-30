@@ -12,6 +12,9 @@ q = queue.Queue()
 if torch.backends.mps.is_available():
     device = "mps"
     torch_dtype = torch.float16
+elif torch.cuda.is_available():
+    device = "cuda"
+    torch_dtype = torch.float16
 else:
     device = "cpu"
     torch_dtype = torch.float32
